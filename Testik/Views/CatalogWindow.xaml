@@ -1,0 +1,56 @@
+﻿<Window x:Class="Testik.Views.CatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Testik.Views"
+        mc:Ignorable="d"
+        xmlns:models="clr-namespace:Testik.Models"
+        Icon="/Images/Icon.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="CatalogWindow" Height="525" Width="1020">
+    <Grid>
+        <ScrollViewer Margin="4 65 4 4">
+            <ItemsControl x:Name="ListProducts">
+                <ItemsControl.Resources>
+                    <DataTemplate DataType="{x:Type models:Product}">
+                        <Border Margin="4 3 4 3" CornerRadius="2" BorderBrush="Black" BorderThickness="1">
+                            <DockPanel>
+                                <Image Margin="15 0 0 0" Width="55" Height="55" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding PhotoNewName}" DockPanel.Dock="Left"/>
+                                <TextBlock Margin="0 0 15 0" Text="{Binding Price}" DockPanel.Dock="Right" FontSize="16.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <StackPanel Margin="15 5 0 5">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
+                                        <TextBlock Text="{Binding CategoryName}"/>
+                                        <TextBlock Text=" / "/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Description}"/>
+                                    <TextBlock Text="{Binding Compound}"/>
+                                    <TextBlock Text="{Binding Weight}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type models:Combo}">
+                        <Border Margin="4 3 4 3" CornerRadius="2" BorderBrush="Black" BorderThickness="1">
+                            <DockPanel>
+                                <Image Margin="15 0 0 0" Width="55" Height="55" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding PhotoNewName}" DockPanel.Dock="Left"/>
+                                <TextBlock Margin="0 0 15 0" Text="{Binding Price}" DockPanel.Dock="Right" FontSize="16.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <StackPanel Margin="15 5 0 5">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
+                                        <TextBlock Text="{Binding CategoryName}"/>
+                                        <TextBlock Text=" / "/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Description}"/>
+                                    <TextBlock Text="{Binding Compound}"/>
+                                    <TextBlock Text="{Binding Weight}"/>
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.Resources>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>
